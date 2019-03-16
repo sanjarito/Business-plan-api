@@ -109,9 +109,12 @@ function listenForm(){
     event.preventDefault();
     // GET VALUE FROM COUNTY NAME FIELD IN FORM
     const county_name = $('#county').val()
+    const county_name_compare = $('#county-compare').val()
     // GET VALUE FROM STATE DROP DOWN FIELD IN FORM
     const state_selection = $('#state_selection')
+    const state_selection_compare = $('#state_selection-compare')
     let state_key = (state_selection[0].value)
+    let state_key_compare = (state_selection_compare[0].value)
     // GET VALUE FROM INDUSTRY DROP DOWN FIELD IN FORM
     const industry_selection = $('#industry_selection')
     let industry_key = (industry_selection[0].value)
