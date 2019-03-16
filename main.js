@@ -1,7 +1,7 @@
 function change_Countyname_to_CountyFIP(county_name,state_key,industry_key){
   let county_name_corrected = upperCaseFirstLetter(lowerCaseAllWordsExceptFirstLetters(county_name));
   let county_url = `https://coastwatch.pfeg.noaa.gov/erddap/convert/fipscounty.txt?county=${state_key}%2C%20${county_name_corrected}`
-  fetch(county_url)
+  fetch(`https://coastwatch.pfeg.noaa.gov/erddap/convert/fipscounty.txt?county%3DCO%2C+Boulder`)
     .then(
       function(response) {
         if (response.status !== 200) {
@@ -10,9 +10,11 @@ function change_Countyname_to_CountyFIP(county_name,state_key,industry_key){
           console.log('Make sure your County exists within selected state')
           return;
         }
-        response.json().then(function(data) {
+        response.text().then(function(data){
           fetch_US_Census_API(data,industry_key)
-        });
+        })
+
+
       }
     )
     .catch(function(err) {
@@ -99,7 +101,7 @@ function business_Score_Calculator(demographic_Variables,industry_key){
   function automotive_Calculator(){
     console.log('inside automotive calculator function')
   }
-  
+
 }
 
 function listenForm(){
