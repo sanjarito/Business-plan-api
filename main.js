@@ -162,8 +162,8 @@ function county_comparison_model(demographic_Variables,industry_key,demographic_
 
 function listenForm(){
 
-  $('#form-submit').on('click',function(){
-    event.preventDefault();
+  $('#form-submit').on('click',function(e){
+    e.preventDefault();
     // EMPTY ARRAY
     empty();
     // GET VALUE FROM COUNTY NAME FIELD IN FORM
