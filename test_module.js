@@ -4,12 +4,13 @@
 console.log("Caca")
 var settings = {
   "async": true,
+  "origin":"https://sanjarito.github.io/Business-plan-api/",
   "crossDomain": true,
   "url": "https://coastwatch.pfeg.noaa.gov/erddap/convert/fipscounty.txt?county=NC%2C%20Buncombe",
   "method": "GET",
   "headers": {
     "cache-control": "no-cache",
-    "origin":"https://sanjarito.github.io/Business-plan-api/"
+    
   }
 }
 
