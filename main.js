@@ -30,7 +30,11 @@ function change_Countyname_to_CountyFIP(county_name,state_key,county_name_compar
 
     .then(function(data){
       console.log('inside url compare')
-      fetch(`${county_url_compare}`)
+      fetch(`${proxyurl+county_url_compare}`,{
+        headers: {
+          "x-requested-with": "xhr"
+        }
+      })
         .then(function(response){
           if (response.status !== 200) {
             console.log('Looks like there was a problem. Status Code: ' +
