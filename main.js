@@ -9,11 +9,10 @@ function change_Countyname_to_CountyFIP(county_name,state_key,county_name_compar
   fetch(`${county_url}`,{
   mode: 'cors',
   headers: {
-    'Origin': 'https://github.com/sanjarito/Business-plan-api'
-    'Access-Control-Request-Method': 'GET'
+    'Origin': 'https://github.com/sanjarito/Business-plan-api',
+    'Access-Control-Request-Method': 'GET',
     'Access-Control-Request-Headers': 'content-type,accept'
-  }}
-  )
+  }})
     .then(
       function(response) {
         console.log('inside url 1st step')
