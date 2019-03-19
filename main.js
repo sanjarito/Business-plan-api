@@ -208,4 +208,4 @@ function startMachine(){
   listenForm()
 }
 
-startMachine()
+// startMachine()
