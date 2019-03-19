@@ -10,8 +10,8 @@ function change_Countyname_to_CountyFIP(county_name,state_key,county_name_compar
   mode: 'cors',
   headers: {
     'Access-Control-Allow-Origin':'*',
-    'Access-Control-Allow-Methods': 'GET, POST, PATCH, PUT, DELETE, OPTIONS',
-    'Access-Control-Allow-Headers': 'Origin, Content-Type, X-Auth-Token'
+    'Access-Control-Allow-Methods':'GET, POST, PATCH, PUT, DELETE, OPTIONS',
+    'Access-Control-Allow-Headers':'Origin, Content-Type, X-Auth-Token'
   }}
   )
     .then(
