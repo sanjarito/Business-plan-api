@@ -3,16 +3,14 @@ const demographic_data = []
 function change_Countyname_to_CountyFIP(county_name,state_key,county_name_compare,state_key_compare,industry_key){
   let county_name_corrected = upperCaseFirstLetter(lowerCaseAllWordsExceptFirstLetters(county_name));
   let county_name_compare_corrected = upperCaseFirstLetter(lowerCaseAllWordsExceptFirstLetters(county_name_compare));
-  // let county_url = `https://coastwatch.pfeg.noaa.gov/erddap/convert/fipscounty.txt?county=${state_key}%2C%20${county_name_corrected}`
-  let county_url = `https://coastwatch.pfeg.noaa.gov/erddap/convert/fipscounty.txt?county=NC%2C%20Buncombe`
+  let county_url = `https://coastwatch.pfeg.noaa.gov/erddap/convert/fipscounty.txt?county=${state_key}%2C%20${county_name_corrected}`
+  // let county_url = `https://coastwatch.pfeg.noaa.gov/erddap/convert/fipscounty.txt?county=NC%2C%20Buncombe`
   let county_url_compare = `https://coastwatch.pfeg.noaa.gov/erddap/convert/fipscounty.txt?county=${state_key_compare}%2C%20${county_name_compare_corrected}`
   const proxyurl = "https://cors-anywhere.herokuapp.com/";
   fetch(`${proxyurl+county_url}`,{
-  mode: 'cors',
-  // headers: {
-  //   'Origin': 'https://github.com/sanjarito/Business-plan-api',
-  //   'Access-Control-Request-Method': GET,
-  //   'Access-Control-Request-Headers': 'content-type,accept'
+  headers: {
+    "x-requested-with": "xhr"
+  }
    })
 
     .then(
