@@ -3,7 +3,8 @@ const demographic_data = []
 function change_Countyname_to_CountyFIP(county_name,state_key,county_name_compare,state_key_compare,industry_key){
   let county_name_corrected = upperCaseFirstLetter(lowerCaseAllWordsExceptFirstLetters(county_name));
   let county_name_compare_corrected = upperCaseFirstLetter(lowerCaseAllWordsExceptFirstLetters(county_name_compare));
-  let county_url = `https://coastwatch.pfeg.noaa.gov/erddap/convert/fipscounty.txt?county=${state_key}%2C%20${county_name_corrected}`
+  // let county_url = `https://coastwatch.pfeg.noaa.gov/erddap/convert/fipscounty.txt?county=${state_key}%2C%20${county_name_corrected}`
+  let county_url = `https://coastwatch.pfeg.noaa.gov/erddap/convert/fipscounty.txt?county=NC%2C%20Buncombe`
   let county_url_compare = `https://coastwatch.pfeg.noaa.gov/erddap/convert/fipscounty.txt?county=${state_key_compare}%2C%20${county_name_compare_corrected}`
   fetch(`${county_url}`)
     .then(
@@ -48,7 +49,7 @@ function change_Countyname_to_CountyFIP(county_name,state_key,county_name_compar
 function fetch_US_Census_API(fip_fullcode,industry_key){
   let string_FIP_Code = fip_fullcode.toString();
   const base_url = 'https://api.census.gov/data/2017/acs/acs1/subject?'
-  const query = `get=S0101_C01_032E,S0101_C01_001E,S0101_C02_020E,S0101_C01_024E,S0101_C03_001E,S0804_C01_037E,S0804_C01_044E,S0804_C01_086E,S0804_C01_090E,S1401_C02_010E,S1101_C01_002E,S1501_C02_015E,S1501_C02_014E,S1701_C03_001E,S1901_C01_013E,S2001_C01_002E,S1902_C03_001E,S2301_C04_001E`
+  const query = `get=S0101_C01_032E,S0101_C01_001E,S0101_C02_020E,S0101_C02_024E,S0101_C03_001E,S0804_C01_037E,S0804_C01_044E,S0804_C01_086E,S0804_C01_090E,S1401_C02_010E,S1101_C01_002E,S1501_C02_015E,S1501_C02_014E,S1701_C03_001E,S1901_C01_013E,S2001_C01_002E,S1902_C03_001E,S2301_C04_001E`
 
 
   let state_Fip = string_FIP_Code.slice(0,2)
@@ -56,6 +57,7 @@ function fetch_US_Census_API(fip_fullcode,industry_key){
   console.log(state_Fip)
   console.log(county_Fip)
   let county_Choice = `&for=county:${county_Fip}&in=state:${state_Fip}`
+
   const api_Key = "&key=55b0d26c356f26e6e290449d42e7b084e78877e3"
   let full_URL = base_url + query + county_Choice + api_Key
   fetch(full_URL)
@@ -81,14 +83,13 @@ function fetch_US_Census_API(fip_fullcode,industry_key){
 function fetch_US_Census_API_model(fip_fullcode,industry_key){
   let string_FIP_Code = fip_fullcode.toString();
   const base_url = 'https://api.census.gov/data/2017/acs/acs1/subject?'
-  const query = `get=S0101_C01_032E,S0101_C01_001E,S0101_C02_020E,S0101_C01_024E,S0101_C03_001E,S0804_C01_037E,S0804_C01_044E,S0804_C01_086E,S0804_C01_090E,S1401_C02_010E,S1101_C01_002E,S1501_C02_015E,S1501_C02_014E,S1701_C03_001E,S1901_C01_013E,S2001_C01_002E,S1902_C03_001E,S2301_C04_001E`
-
-
+  const query = `get=S0101_C01_032E,S0101_C01_001E,S0101_C02_020E,S0101_C02_024E,S0101_C03_001E,S0804_C01_037E,S0804_C01_044E,S0804_C01_086E,S0804_C01_090E,S1401_C02_010E,S1101_C01_002E,S1501_C02_015E,S1501_C02_014E,S1701_C03_001E,S1901_C01_013E,S2001_C01_002E,S1902_C03_001E,S2301_C04_001E`
   let state_Fip = string_FIP_Code.slice(0,2)
   let county_Fip = string_FIP_Code.slice(2,5)
   console.log(state_Fip)
   console.log(county_Fip)
   let county_Choice = `&for=county:${county_Fip}&in=state:${state_Fip}`
+
   const api_Key = "&key=55b0d26c356f26e6e290449d42e7b084e78877e3"
   let full_URL = base_url + query + county_Choice + api_Key
   fetch(full_URL)
@@ -114,7 +115,7 @@ function fetch_US_Census_API_model(fip_fullcode,industry_key){
 function business_Score_Calculator(demographic_Variables,industry_key,demographic_data,){
   const values = demographic_Variables
   const keys = ['Median Age', 'Total Population','Percent Population 5 to 14 years',
-  'Percent Population 5 to 14 years', 'Total Male Population','Estimate Earnings','% of Population that work in services',
+  'Percent Population 15 to 44 years', 'Total Male Population','Estimate Earnings','% of Population that work in services',
   'Mean Travel Time to Work','% that has no vehicle','% Enrolled in College',
   'Average Household Size','Bachelors Degree or Higher','High School Degree or Higher',
   'Population % for whom poverty status is determined','Households!!Estimate!!Mean income',
@@ -129,7 +130,7 @@ function business_Score_Calculator(demographic_Variables,industry_key,demographi
 function county_comparison_model(demographic_Variables,industry_key,demographic_data){
   const values = demographic_Variables
   const keys = ['Median Age', 'Total Population','Percent Population 5 to 14 years',
-  'Percent Population 5 to 14 years', 'Total Male Population','Estimate Earnings','% of Population that work in services',
+  'Percent Population 15 to 44 years', 'Total Male Population','Estimate Earnings','% of Population that work in services',
   'Mean Travel Time to Work','% that has no vehicle','% Enrolled in College',
   'Average Household Size','Bachelors Degree or Higher','High School Degree or Higher',
   'Population % for whom poverty status is determined','Households!!Estimate!!Mean income',
@@ -139,8 +140,12 @@ function county_comparison_model(demographic_Variables,industry_key,demographic_
   keys.forEach((key, i) => result_model[key] = values[i]);
   console.log(industry_key)
   demographic_data.push(result_model)
+  // industry_selector(demographic_data,industry_key)
   if (industry_key == "sports") {
-    sports_Calculator(demographic_data)
+    sports_Calculator(demographic_data,function(){
+      console.log(total_score)
+    })
+
   } else if (industry_key == "construction") {
     construction_Calculator(demographic_data)
   } else if (industry_key == "restaurant") {
@@ -152,10 +157,8 @@ function county_comparison_model(demographic_Variables,industry_key,demographic_
   } else {
     console.log('no industry was selected')
   }
+
 }
-
-
-
 
 function listenForm(){
 
@@ -191,6 +194,7 @@ function lowerCaseAllWordsExceptFirstLetters(string) {
 
 function empty(){
   demographic_data.length=0;
+  total_score.length=0;
 }
 
 function startMachine(){
