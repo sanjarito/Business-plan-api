@@ -6,7 +6,12 @@ function change_Countyname_to_CountyFIP(county_name,state_key,county_name_compar
   // let county_url = `https://coastwatch.pfeg.noaa.gov/erddap/convert/fipscounty.txt?county=${state_key}%2C%20${county_name_corrected}`
   let county_url = `https://coastwatch.pfeg.noaa.gov/erddap/convert/fipscounty.txt?county=NC%2C%20Buncombe`
   let county_url_compare = `https://coastwatch.pfeg.noaa.gov/erddap/convert/fipscounty.txt?county=${state_key_compare}%2C%20${county_name_compare_corrected}`
-  fetch(`${county_url}`)
+  fetch(`${county_url}`,{
+  mode: 'cors',
+  headers: {
+    'Access-Control-Allow-Origin':'*'
+  }}
+  )
     .then(
       function(response) {
         console.log('inside url 1st step')
