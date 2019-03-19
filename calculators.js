@@ -3,10 +3,12 @@ let total_score = []
 function sports_Calculator(demographic_data,callback){
 
   console.log('inside sports calculator function')
-  median_age_scorer(demographic_data)
-  total_population_scorer(demographic_data)
-  five_to_fourteen_scorer(demographic_data)
-  fifteen_to_fortyfour_scorer(demographic_data)
+  median_Age_Scorer(demographic_data)
+  total_Population_Scorer(demographic_data)
+  five_to_fourteen_Scorer(demographic_data)
+  fifteen_to_fortyfour_Scorer(demographic_data)
+  estimate_Earnings_Scorer(demographic_data)
+  travel_Time_Scorer(demographic_data)
 
   callback();
 
@@ -29,7 +31,7 @@ function automotive_Calculator(demographic_data){
   console.log(demographic_data)
 }
 
-function median_age_scorer(demographic_data){
+function median_Age_Scorer(demographic_data){
   let age_diff = (demographic_data[0]['Median Age']) - (demographic_data[1]['Median Age'])
   let age_diff_abs = Math.abs(age_diff)
   if (age_diff_abs <= 1){
@@ -48,7 +50,7 @@ function median_age_scorer(demographic_data){
 
 }
 
-function total_population_scorer(demographic_data){
+function total_Population_Scorer(demographic_data){
 
   let population_target = demographic_data[0]['Total Population']
   let population_model = demographic_data[1]['Total Population']
@@ -71,7 +73,7 @@ function total_population_scorer(demographic_data){
 
 }
 
-function five_to_fourteen_scorer(demographic_data){
+function five_to_fourteen_Scorer(demographic_data){
   let population_target = demographic_data[0]['Percent Population 5 to 14 years']
   let population_model = demographic_data[1]['Percent Population 5 to 14 years']
   let population_minus = population_model - population_target
@@ -91,7 +93,7 @@ function five_to_fourteen_scorer(demographic_data){
   }
 }
 
-function fifteen_to_fortyfour_scorer(demographic_data){
+function fifteen_to_fortyfour_Scorer(demographic_data){
   let population_target = demographic_data[0]['Percent Population 15 to 44 years']
   let population_model = demographic_data[1]['Percent Population 15 to 44 years']
   let population_minus = population_model - population_target
@@ -112,4 +114,50 @@ function fifteen_to_fortyfour_scorer(demographic_data){
   } else {
     total_score.push({'Total Age-Fifteen-Fortyfour Score':5})
   }
+}
+
+function estimate_Earnings_Scorer(demographic_data){
+  let population_target = demographic_data[0]['Estimate Earnings']
+  let population_model = demographic_data[1]['Estimate Earnings']
+  let earnings_substraction = population_model - population_target
+  console.log(population_target)
+  console.log(population_model)
+  console.log(earnings_substraction)
+
+    if (earnings_substraction <= 3500){
+      total_score.push({'Total Estimate Earnings Score':10})
+    } else if (earnings_substraction > 3500 && earnings_substraction <= 4500 ){
+      total_score.push({'Total Estimate Earnings Score':9})
+    } else if (earnings_substraction > 4500 && earnings_substraction <= 7500 ){
+      total_score.push({'Total Estimate Earnings Score':8})
+    } else if (earnings_substraction > 7500 && earnings_substraction <= 10000 ){
+      total_score.push({'Total Estimate Earnings Score':7})
+    } else if (earnings_substraction > 10000 && earnings_substraction <= 13000 ){
+      total_score.push({'Total Estimate Earnings Score':6})
+    } else {
+      total_score.push({'Total Estimate Earnings Score':5})
+    }
+
+}
+
+function travel_Time_Scorer(demographic_data){
+  let population_target = demographic_data[0]['Mean Travel Time to Work']
+  let population_model = demographic_data[1]['Mean Travel Time to Work']
+  let travel_Time_Difference = population_model - population_target
+  console.log(population_target)
+  console.log(population_model)
+  if (travel_Time_Difference >= 0){
+    total_score.push({'Mean Travel Time to Work':10})
+  } else if (travel_Time_Difference < 0 && travel_Time_Difference <= 10 ){
+    total_score.push({'Mean Travel Time to Work':9})
+  } else if (travel_Time_Difference < 10 && travel_Time_Difference <= 15 ){
+    total_score.push({'Mean Travel Time to Work':8})
+  } else if (travel_Time_Difference < 15 && travel_Time_Difference <= 20 ){
+    total_score.push({'Mean Travel Time to Work':7})
+  } else if (travel_Time_Difference < 20 && travel_Time_Difference <= 30 ){
+    total_score.push({'Mean Travel Time to Work':6})
+  } else {
+    total_score.push({'Mean Travel Time to Work':5})
+  }
+
 }
