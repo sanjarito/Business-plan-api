@@ -9,7 +9,7 @@ var settings = {
   "method": "GET",
   "headers": {
     "cache-control": "no-cache",
-    "Postman-Token": "9be8b17a-36de-409a-a78b-4a6edc190ea6"
+    "origin":"https://sanjarito.github.io/Business-plan-api/"
   }
 }
 
