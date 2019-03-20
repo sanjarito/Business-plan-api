@@ -8,7 +8,7 @@ function sports_Calculator(demographic_data,callback){
   five_to_fourteen_Scorer(demographic_data)
   fifteen_to_fortyfour_Scorer(demographic_data)
   estimate_Earnings_Scorer(demographic_data)
-  travel_Time_Scorer(demographic_data)
+  travel_Time_Scorer()
 
   callback();
 

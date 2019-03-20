@@ -1,4 +1,4 @@
-
+let total_score = []
 const demographic_data = []
 function change_Countyname_to_CountyFIP(county_name,state_key,county_name_compare,state_key_compare,industry_key){
   let county_name_corrected = upperCaseFirstLetter(lowerCaseAllWordsExceptFirstLetters(county_name));
@@ -151,22 +151,7 @@ function county_comparison_model(demographic_Variables,industry_key,demographic_
   console.log(industry_key)
   demographic_data.push(result_model)
   // industry_selector(demographic_data,industry_key)
-  if (industry_key == "sports") {
-    sports_Calculator(demographic_data,function(){
-      console.log(total_score)
-    })
 
-  } else if (industry_key == "construction") {
-    construction_Calculator(demographic_data)
-  } else if (industry_key == "restaurant") {
-    restaurant_Calculator(demographic_data)
-  } else if (industry_key == "beauty") {
-    beauty_Calculator(demographic_data)
-  } else if (industry_key == "automotive") {
-    automotive_Calculator(demographic_data)
-  } else {
-    console.log('no industry was selected')
-  }
 
 }
 
@@ -210,5 +195,7 @@ function empty(){
 function startMachine(){
   listenForm()
 }
+
+
 
 startMachine()
