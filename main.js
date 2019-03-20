@@ -151,7 +151,22 @@ function county_comparison_model(demographic_Variables,industry_key,demographic_
   console.log(industry_key)
   demographic_data.push(result_model)
   // industry_selector(demographic_data,industry_key)
+  if (industry_key == "sports") {
+    sports_Calculator(demographic_data,function(){
+      console.log(total_score)
+    })
 
+  } else if (industry_key == "construction") {
+    construction_Calculator(demographic_data)
+  } else if (industry_key == "restaurant") {
+    restaurant_Calculator(demographic_data)
+  } else if (industry_key == "beauty") {
+    beauty_Calculator(demographic_data)
+  } else if (industry_key == "automotive") {
+    automotive_Calculator(demographic_data)
+  } else {
+    console.log('no industry was selected')
+  }
 
 }
 
