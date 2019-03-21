@@ -1,15 +1,31 @@
-let total_score = []
+function industry_Selector(demographic_data,industry_key){
+  console.log('INDUSTRY SELECTOR STARTS 3RD')
+  if (industry_key == "sports") {
+    sports_Calculator(demographic_data,function(){
+      median_Age_Scorer(demographic_data)
+      total_Population_Scorer(demographic_data)
+      five_to_fourteen_Scorer(demographic_data)
+      fifteen_to_fortyfour_Scorer(demographic_data)
+      estimate_Earnings_Scorer(demographic_data)
+      travel_Time_Scorer(demographic_data)
+      console.log(total_score)
+    })
 
+  } else if (industry_key == "construction") {
+    construction_Calculator(demographic_data)
+  } else if (industry_key == "restaurant") {
+    restaurant_Calculator(demographic_data)
+  } else if (industry_key == "beauty") {
+    beauty_Calculator(demographic_data)
+  } else if (industry_key == "automotive") {
+    automotive_Calculator(demographic_data)
+  } else {
+    console.log('no industry was selected')
+  }
+}
 function sports_Calculator(demographic_data,callback){
 
-  console.log('inside sports calculator function')
-  median_Age_Scorer(demographic_data)
-  total_Population_Scorer(demographic_data)
-  five_to_fourteen_Scorer(demographic_data)
-  fifteen_to_fortyfour_Scorer(demographic_data)
-  estimate_Earnings_Scorer(demographic_data)
-  travel_Time_Scorer()
-
+  console.log('inside sports calculator function SHOULD BE 4TH')
   callback();
 
   }
@@ -32,6 +48,7 @@ function automotive_Calculator(demographic_data){
 }
 
 function median_Age_Scorer(demographic_data){
+  console.log('5TH')
   let age_diff = (demographic_data[0]['Median Age']) - (demographic_data[1]['Median Age'])
   let age_diff_abs = Math.abs(age_diff)
   if (age_diff_abs <= 1){
@@ -51,6 +68,7 @@ function median_Age_Scorer(demographic_data){
 }
 
 function total_Population_Scorer(demographic_data){
+  console.log('6TH')
 
   let population_target = demographic_data[0]['Total Population']
   let population_model = demographic_data[1]['Total Population']
@@ -74,6 +92,7 @@ function total_Population_Scorer(demographic_data){
 }
 
 function five_to_fourteen_Scorer(demographic_data){
+  console.log('7TH')
   let population_target = demographic_data[0]['Percent Population 5 to 14 years']
   let population_model = demographic_data[1]['Percent Population 5 to 14 years']
   let population_minus = population_model - population_target
@@ -98,8 +117,7 @@ function fifteen_to_fortyfour_Scorer(demographic_data){
   let population_model = demographic_data[1]['Percent Population 15 to 44 years']
   let population_minus = population_model - population_target
 
-  console.log(population_target)
-  console.log(population_model)
+
 
   if (population_minus<= 1){
     total_score.push({'Total Age-Fifteen-Fortyfour Score':10})
@@ -120,9 +138,7 @@ function estimate_Earnings_Scorer(demographic_data){
   let population_target = demographic_data[0]['Estimate Earnings']
   let population_model = demographic_data[1]['Estimate Earnings']
   let earnings_substraction = population_model - population_target
-  console.log(population_target)
-  console.log(population_model)
-  console.log(earnings_substraction)
+
 
     if (earnings_substraction <= 3500){
       total_score.push({'Total Estimate Earnings Score':10})
@@ -141,11 +157,12 @@ function estimate_Earnings_Scorer(demographic_data){
 }
 
 function travel_Time_Scorer(demographic_data){
+  console.log('LAST')
+
   let population_target = demographic_data[0]['Mean Travel Time to Work']
   let population_model = demographic_data[1]['Mean Travel Time to Work']
   let travel_Time_Difference = population_model - population_target
-  console.log(population_target)
-  console.log(population_model)
+
   if (travel_Time_Difference >= 0){
     total_score.push({'Mean Travel Time to Work':10})
   } else if (travel_Time_Difference < 0 && travel_Time_Difference <= 10 ){
