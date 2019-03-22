@@ -1,54 +1,5 @@
-function industry_Selector(demographic_data,industry_key){
-  console.log('INDUSTRY SELECTOR STARTS 3RD')
-  if (industry_key == "sports") {
-    sports_Calculator(demographic_data,function(){
-      median_Age_Scorer(demographic_data)
-      total_Population_Scorer(demographic_data)
-      five_to_fourteen_Scorer(demographic_data)
-      fifteen_to_fortyfour_Scorer(demographic_data)
-      estimate_Earnings_Scorer(demographic_data)
-      travel_Time_Scorer(demographic_data)
-      console.log(total_score)
-    })
-
-  } else if (industry_key == "construction") {
-    construction_Calculator(demographic_data)
-  } else if (industry_key == "restaurant") {
-    restaurant_Calculator(demographic_data)
-  } else if (industry_key == "beauty") {
-    beauty_Calculator(demographic_data)
-  } else if (industry_key == "automotive") {
-    automotive_Calculator(demographic_data)
-  } else {
-    console.log('no industry was selected')
-  }
-}
-function sports_Calculator(demographic_data,callback){
-
-  console.log('inside sports calculator function SHOULD BE 4TH')
-  callback();
-
-  }
-
-function construction_Calculator(demographic_data){
-  console.log('inside construction calculator function')
-  console.log(demographic_data[0]['Median Age'])
-}
-function restaurant_Calculator(demographic_data){
-  console.log('inside restaurant calculator function')
-  console.log(demographic_data)
-}
-function beauty_Calculator(demographic_data){
-  console.log('inside beauty calculator function')
-  console.log(demographic_data)
-}
-function automotive_Calculator(demographic_data){
-  console.log('inside automotive calculator function')
-  console.log(demographic_data)
-}
 
 function median_Age_Scorer(demographic_data){
-  console.log('5TH')
   let age_diff = (demographic_data[0]['Median Age']) - (demographic_data[1]['Median Age'])
   let age_diff_abs = Math.abs(age_diff)
   if (age_diff_abs <= 1){
@@ -67,32 +18,37 @@ function median_Age_Scorer(demographic_data){
 
 }
 
-function total_Population_Scorer(demographic_data){
-  console.log('6TH')
+function total_Population_Scorer(demographic_data,callback){
+
 
   let population_target = demographic_data[0]['Total Population']
   let population_model = demographic_data[1]['Total Population']
   let population_diff = population_target - population_model
-  if (Math.sign(population_diff)== +1 || Math.sign(population_diff)== 0){
+  score_explanation.push({'Total Population Explanation':`The score is based on positive correlation between the total population of our target county and the county we are using as a model`})
+  if (Math.sign(population_diff)== 1 || Math.sign(population_diff)== 0){
     total_score.push({'Total Population Score':10})
+    score_explanation.push({'Total Population Score Specifics':`It received a score of 10 because target county has ${population_target} and the model county has a population of ${population_model}. This is an equal or greater population than county used a model`})
   } else if (Math.sign(population_diff)== -1 && Math.abs(population_diff)<20000){
     total_score.push({'Total Population Score':9})
+    score_explanation.push({'Total Population Score Specifics':`It received a score of 9 because the target county has a smaller population ${population_target} and the model county has a population of ${population_model}.Our target county population difference is less than 20,000 of model county`})
   } else if (Math.sign(population_diff)== -1 && (Math.abs(population_diff)>=20000) && (Math.abs(population_diff)<80000)){
     total_score.push({'Total Population Score':8})
+    score_explanation.push({'Total Population Score Specifics':`It received a score of 8 because the target county has a population ${population_target} and the model county has a population of ${population_model}. Our target county has between 20,000 to 80,000 less than model county `})
   } else if (Math.sign(population_diff)== -1 && (Math.abs(population_diff)>=80000) && (Math.abs(population_diff)<120000)){
     total_score.push({'Total Population Score':7})
+    score_explanation.push({'Total Population Score Specifics':`It received a score of 7 because the target county has a population ${population_target} and the model county has a population of ${population_model}. Our target county has between 80,000 to 120,000 less than model county `})
   } else if (Math.sign(population_diff)== -1 && (Math.abs(population_diff)>=120000) && (Math.abs(population_diff)<200000)){
     total_score.push({'Total Population Score':6})
+    score_explanation.push({'Total Population Score Specifics':`It received a score of 6 because the target county has a population ${population_target} and the model county has a population of ${population_model}. Our target county has between 120,000 to 200,000 less than model county `})
   } else {
     total_score.push({'Total Population Score':5})
+    score_explanation.push({'Total Population Score Specifics':`It received a score of 5 because the target county has a population of ${population_target} and the model county has a population of ${population_model}. Our target county has  at least 200,000 inhabitants less than model county`})
   }
 
-
-
+  callback(score_explanation)
 }
 
 function five_to_fourteen_Scorer(demographic_data){
-  console.log('7TH')
   let population_target = demographic_data[0]['Percent Population 5 to 14 years']
   let population_model = demographic_data[1]['Percent Population 5 to 14 years']
   let population_minus = population_model - population_target
@@ -116,9 +72,6 @@ function fifteen_to_fortyfour_Scorer(demographic_data){
   let population_target = demographic_data[0]['Percent Population 15 to 44 years']
   let population_model = demographic_data[1]['Percent Population 15 to 44 years']
   let population_minus = population_model - population_target
-
-
-
   if (population_minus<= 1){
     total_score.push({'Total Age-Fifteen-Fortyfour Score':10})
   } else if (population_minus > 1 && population_minus <= 2 ){
@@ -138,8 +91,6 @@ function estimate_Earnings_Scorer(demographic_data){
   let population_target = demographic_data[0]['Estimate Earnings']
   let population_model = demographic_data[1]['Estimate Earnings']
   let earnings_substraction = population_model - population_target
-
-
     if (earnings_substraction <= 3500){
       total_score.push({'Total Estimate Earnings Score':10})
     } else if (earnings_substraction > 3500 && earnings_substraction <= 4500 ){
@@ -157,12 +108,9 @@ function estimate_Earnings_Scorer(demographic_data){
 }
 
 function travel_Time_Scorer(demographic_data){
-  console.log('LAST')
-
   let population_target = demographic_data[0]['Mean Travel Time to Work']
   let population_model = demographic_data[1]['Mean Travel Time to Work']
   let travel_Time_Difference = population_model - population_target
-
   if (travel_Time_Difference >= 0){
     total_score.push({'Mean Travel Time to Work':10})
   } else if (travel_Time_Difference < 0 && travel_Time_Difference <= 10 ){
@@ -176,5 +124,25 @@ function travel_Time_Scorer(demographic_data){
   } else {
     total_score.push({'Mean Travel Time to Work':5})
   }
+}
 
+//Definitions of functions that based on industry we can choose what calculations we will be using
+function sports_Calculator(demographic_data,callback){
+  callback();
+  }
+function construction_Calculator(demographic_data){
+  console.log('inside construction calculator function')
+  console.log(demographic_data[0]['Median Age'])
+}
+function restaurant_Calculator(demographic_data){
+  console.log('inside restaurant calculator function')
+  console.log(demographic_data)
+}
+function beauty_Calculator(demographic_data){
+  console.log('inside beauty calculator function')
+  console.log(demographic_data)
+}
+function automotive_Calculator(demographic_data){
+  console.log('inside automotive calculator function')
+  console.log(demographic_data)
 }

@@ -1,0 +1,10 @@
+.scores_container{
+  background:orange;
+  width:100%;
+  height:300px;
+}
+
+.score_titles{
+  
+  text-align: center;
+}
