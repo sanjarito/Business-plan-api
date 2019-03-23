@@ -179,6 +179,7 @@ function empty(){
   demographic_data.length=0;
   total_score.length=0;
   score_explanation.length=0;
+  
 }
 
 listenForm()

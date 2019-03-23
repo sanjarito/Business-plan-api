@@ -30,7 +30,7 @@
         <h2> What county do you want to do reseach for? </h2>
         <label for="county_choice">County</label>
         <input type="text" name="city" required id="county"
-        placeholder="Type County Name">
+        placeholder="Type County Name" value="Lee">
 
 
         <label for="state_choice">State</label>
@@ -89,13 +89,10 @@
         </select>
         <br><br>
 
-
-
-
         <span><h2>County used as a comparison model</h2></span>
         <label for="county_choice">County</label>
         <input type="text" name="city" required id="county-compare"
-        placeholder="Type County Name">
+        placeholder="Type County Name" value="Montgomery" >
 
         <label for="state_choice">State</label>
         <select id="state_selection-compare">
@@ -160,11 +157,59 @@
       </form>
     </div>
     <div class="scores_container">
-      <ul class="scores_ul">
-        <div class="demographic_container"><h2 class="score_titles">Demographic Score</h2></div>
-        <div class="financial_container"><h2 class="score_titles">Financial Score</h2></div>
-        <div class="transportation_container"><h2 class="score_titles">Transportation Score</h2></div>
+        <button class="scores_Explanation_Btn">Scores Explanation</button>
+        <ul class="scores_ul">
+          <div class="demographic_container">
+            <h2 class="score_titles">Demographic Scores</h2>
+            <!-- MEDIAN AGE EXPLANATION OF SCORE -->
+            <h3>Median Age Score:</h3>
+            <li class="median_Age">
+            </li>
+            <button id="how_Score_Median_Btn">How is score calculated</button>
+            <!-- TOTAL POPULATION EXPLANATION OF SCORE -->
+            <h3>Total Population Score:</h3>
+            <li class="total_Population">
+            </li>
+            <button id="how_Score_Totalpopulation_Btn">How is score calculated</button>
+            <!-- AGE 5-14 EXPLANATION OF SCORE -->
+            <h3>Five to Fourteen Age Score:</h3>
+            <li class="fivetofourteen_Age">
+            </li>
+            <button id="how_Score_Fivetofourteen_Btn">How is score calculated</button>
+            <!-- AGE 15-44 EXPLANATION OF SCORE -->
+            <h3>Fifteen to Fourty Four Age Score:</h3>
+            <li class="fiftytofortyfour_Age">
+            </li>
+            <button id="how_Score_Fiftytofortyfour_Btn">How is score calculated</button>
+          </div>
 
+          <div class="financial_container">
+            <h2 class="score_titles">Financial Scores</h2>
+            <!-- ESTIMATE EARNINGS EXPLANATION OF SCORE -->
+            <h3>Estimate Earnings Score:</h3>
+            <li class="estimate_Earnings">
+            </li>
+            <button id="how_Score_Estimate_Earnings_Btn">How is score calculated</button>
+
+          </div>
+
+          <div class="transportation_container">
+            <h2 class="score_titles">Transportation Scores</h2>
+            <!-- ESTIMATE EARNINGS EXPLANATION OF SCORE -->
+            <h3>Work Travel Time Score:</h3>
+            <li class="work_Travel_Time">
+            </li>
+            <button id="how_Score_Work_Traveltime_Btn">How is score calculated</button>
+
+          </div>
+
+          <div id="myModal" class="modal">
+            <!-- Modal content -->
+            <div class="modal-content">
+              <span class="close">&times;</span>
+              <p></p>
+            </div>
+          </div>
 
       </ul>
     </div>
