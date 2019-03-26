@@ -1,16 +1,17 @@
 .scores_container{
 width:100%;
 height:100%;
+display:none
 }
+
+
 
 .score_titles{
 
   text-align: center;
 }
 
-.scores_container {
-  display:none;
-}
+
 
 .scores_Explanation_Btn{
 
@@ -24,7 +25,7 @@ height:100%;
 
 }
 .financial_container{
-  
+
 
 }
 

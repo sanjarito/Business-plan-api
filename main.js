@@ -135,8 +135,8 @@ function county_comparison_model(demographic_Variables,industry_key,demographic_
   'Percent Population 15 to 44 years', 'Total Male Population','Estimate Earnings','% of Population that work in services',
   'Mean Travel Time to Work','% that has no vehicle','% Enrolled in College',
   'Average Household Size','Bachelors Degree or Higher','High School Degree or Higher',
-  'Population % for whom poverty status is determined','Households!!Estimate!!Mean income',
-  'Total!!Estimate!!Median earnings','Mean income','Unemployment Rate','State FIP code','County FIP code']
+  'Population % for whom poverty status is determined','Households Estimate Mean income',
+  'Total Estimate Median earnings','Mean income','Unemployment Rate','State FIP code','County FIP code']
   var result_model = {};
   keys.forEach((key, i) => result_model[key] = values[i]);
   demographic_data.push(result_model)
@@ -149,6 +149,10 @@ function listenForm(){
     e.preventDefault();
     // EMPTY ARRAY
     empty();
+    // HIDE SCORE EXPLANATION UL'S
+    $('.construction').hide();
+    $('.sports').hide();
+    $('.aggregated_Score').hide();
     // GET VALUE FROM COUNTY NAME FIELD IN FORM
     const county_name = $('#county').val()
     const county_name_compare = $('#county-compare').val()
@@ -179,7 +183,7 @@ function empty(){
   demographic_data.length=0;
   total_score.length=0;
   score_explanation.length=0;
-  
+
 }
 
 listenForm()
