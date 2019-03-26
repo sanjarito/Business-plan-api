@@ -4,7 +4,7 @@ function median_Age_Scorer(demographic_data,callback){
   let model_county_med_age = demographic_data[1]['Median Age']
   let age_diff = target_county_med_age - model_county_med_age
   let age_diff_abs = Math.abs(age_diff)
-  score_explanation.push({'Median Age Explanation':`The score is calculated directly from the mean age difference between model county and target county.`})
+  score_explanation.push({'Median Age Explanation':`The score is calculated directly from the median age difference between model county and target county.`})
   if (age_diff_abs <= 1){
      total_score.push({'Median Age Score':10})
      score_explanation.push({'Median Age Score Specifics':`It received a score of 10 because target county has a median age of ${target_county_med_age} and the model county has a median age of ${model_county_med_age}. The difference is 1 year or less.`})
@@ -254,6 +254,39 @@ function bachelors_Degreeorhigher(demographic_data,callback){
     }
 callback()
 }
+
+function population_poverty(demographic_data,callback){
+  console.log(demographic_data[0])
+  console.log(demographic_data[1])
+  let population_target = demographic_data[0]['Population % for whom poverty status is determined']
+  let population_model = demographic_data[1]['Population % for whom poverty status is determined']
+  let percentage_substraction = population_model - population_target
+  console.log(population_target)
+  console.log(population_model)
+
+  score_explanation.push({'Poverty Percentage Explanation':`The score is a substraction of the percentage of the population that lives under poverty for model county minus the target county.`})
+    if (percentage_substraction >= 1){
+      total_score.push({'Total Poverty Score':10})
+      score_explanation.push({'Poverty Score Specifics':`It received a score of 10 because model county has a percentage of  ${population_model} the population living under poverty and target county has ${population_target}.Target county has 1% difference in poverty or less`})
+    } else if (percentage_substraction < 1 && percentage_substraction <= 3 ){
+      total_score.push({'Total Poverty Score':9})
+      score_explanation.push({'Poverty Score Specifics':`It received a score of 9 because model county has a percentage of  ${population_model} the population living under poverty and target county has ${population_target}.Target county has between 1.01% to 3% more poverty than county model`})
+    } else if (percentage_substraction < 3 && percentage_substraction <= 5 ){
+      total_score.push({'Total Poverty Score':8})
+      score_explanation.push({'Poverty Score Specifics':`It received a score of 8 because model county has a percentage of  ${population_model} the population living under poverty and target county has ${population_target}.Target county has between 3.01% to 5% more poverty than county model`})
+    } else if (percentage_substraction < 5 && percentage_substraction <= 8 ){
+      total_score.push({'Total Poverty Score':7})
+      score_explanation.push({'Poverty Score Specifics':`It received a score of 7 because model county has a percentage of  ${population_model} the population living under poverty and target county has ${population_target}.Target county has between 5.01% to 8% more poverty than county model`})
+    } else if (percentage_substraction < 8 && percentage_substraction <= 10 ){
+      total_score.push({'Total Poverty Score':6})
+      score_explanation.push({'Poverty Score Specifics':`It received a score of 6 because model county has a percentage of  ${population_model} the population living under poverty and target county has ${population_target}.Target county has between 8.01% to 10% more poverty than county model`})
+    } else {
+      total_score.push({'Total Poverty Score':5})
+      score_explanation.push({'Poverty Score Specifics':`It received a score of 5 because model county has a percentage of  ${population_model} the population living under poverty and target county has ${population_target}.Target county has more than 10% more poverty than county model`})
+    }
+callback()
+}
+
 
 
 

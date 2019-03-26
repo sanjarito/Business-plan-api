@@ -215,9 +215,10 @@ function industry_Selector(demographic_data,industry_key){
 
   } else if (industry_key == "construction") {
     construction_Calculator(demographic_data,function(){
+
       median_Age_Scorer(demographic_data,function(){
         console.log(score_explanation[1]['Median Age Score Specifics'])
-        $('.median_Age').text(
+        $('.construction_median_Age').text(
           `${score_explanation[1]['Median Age Score Specifics']}
           `)
         $('#construction_how_Score_Median_Btn').click(function(){
@@ -236,6 +237,29 @@ function industry_Selector(demographic_data,industry_key){
           })
         })
       })
+
+      population_poverty(demographic_data,function(){
+        console.log(score_explanation[2]['Poverty Percentage Explanation'])
+        $('.construction_poverty_percentage').text(
+          `${score_explanation[3]['Poverty Score Specifics']}
+          `)
+        $('#construction_how_Score_Poverty_Btn').click(function(){
+          let modal_paragraph = $('#myModal').children().find('p')
+
+          modal_paragraph.text(`
+            ${score_explanation[2]['Poverty Percentage Explanation']}
+            `)
+
+          $('#myModal').show()
+          $('.close').click(function(){
+            let modal_popup_list = modal_paragraph.children()
+            modal_popup_list.remove()
+            $('#myModal').hide()
+
+          })
+        })
+      })
+
       $('.construction').show()
       $('.construction_Btn').click(function(){
         $('.construction_ul').toggle()
