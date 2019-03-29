@@ -65,7 +65,7 @@ function county_comparison_target(demographic_Variables,industry_key,demographic
   const values = demographic_Variables
   const keys = ['Median Age', 'Total Population','Percent Population 5 to 14 years',
   'Percent Population 15 to 44 years', 'Total Male Population','Estimate Earnings','% of Population that work in services',
-  'Mean Travel Time to Work','% that has no vehicle','% Enrolled in College',
+  'Mean Travel Time to Work','percentage that has no vehicle','% Enrolled in College',
   'Average Household Size','Bachelors Degree or Higher','High School Degree or Higher',
   'Population % for whom poverty status is determined','Households!!Estimate!!Mean income',
   'Total!!Estimate!!Median earnings','Mean income','Unemployment Rate','State FIP code','County FIP code']
@@ -133,7 +133,7 @@ function county_comparison_model(demographic_Variables,industry_key,demographic_
   const values = demographic_Variables
   const keys = ['Median Age', 'Total Population','Percent Population 5 to 14 years',
   'Percent Population 15 to 44 years', 'Total Male Population','Estimate Earnings','% of Population that work in services',
-  'Mean Travel Time to Work','% that has no vehicle','% Enrolled in College',
+  'Mean Travel Time to Work','percentage that has no vehicle','% Enrolled in College',
   'Average Household Size','Bachelors Degree or Higher','High School Degree or Higher',
   'Population % for whom poverty status is determined','Households Estimate Mean income',
   'Total Estimate Median earnings','Mean income','Unemployment Rate','State FIP code','County FIP code']

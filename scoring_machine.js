@@ -1,5 +1,6 @@
 function industry_Selector(demographic_data,industry_key){
 
+// INDUSTRY SPORTS CALLBACK FUNCTION FROM INDUSTRY SELECTOR
   if (industry_key == "sports") {
     sports_Calculator(demographic_data,function(){
       median_Age_Scorer(demographic_data,function(){
@@ -213,6 +214,7 @@ function industry_Selector(demographic_data,industry_key){
 
   })
 
+// INDUSTRY CONSTRUCTION CALLBACK FUNCTION FROM INDUSTRY SELECTOR
   } else if (industry_key == "construction") {
     construction_Calculator(demographic_data,function(){
 
@@ -260,17 +262,287 @@ function industry_Selector(demographic_data,industry_key){
         })
       })
 
+      has_no_vehicle(demographic_data,function(){
+        console.log(score_explanation[4]['No Vehicle Percentage Explanation'])
+        console.log(score_explanation[5]['No Vehicle Score Specifics'])
+        $('.no_vehicle_percentage').text(
+          `${score_explanation[5]['No Vehicle Score Specifics']}
+          `)
+        $('#construction_how_Score_novehicle_Btn').click(function(){
+          let modal_paragraph = $('#myModal').children().find('p')
+
+          modal_paragraph.text(`
+            ${score_explanation[4]['No Vehicle Percentage Explanation']}
+            `)
+
+          $('#myModal').show()
+          $('.close').click(function(){
+            let modal_popup_list = modal_paragraph.children()
+            modal_popup_list.remove()
+            $('#myModal').hide()
+
+          })
+        })
+
+      })
+
+      high_School_Degreeorhigher(demographic_data,function(){
+        $('.construction_highschool_percentage').text(
+
+          `${score_explanation[7]['Highschool Score Specifics']}
+          `)
+        $('#construction_how_Score_highschool_Btn').click(function(){
+
+          let modal_paragraph = $('#myModal').children().find('p')
+
+          modal_paragraph.text(`
+            ${score_explanation[6]['Highschool Education Explanation']}
+            `)
+        $('#myModal').show()
+        $('.close').click(function(){
+          let modal_popup_list = modal_paragraph.children()
+          modal_popup_list.remove()
+          $('#myModal').hide()
+
+          })
+        })
+      })
+
       $('.construction').show()
       $('.construction_Btn').click(function(){
         $('.construction_ul').toggle()
       })
+      let total = 0
+      for (let i=0;i<total_score.length;i++){
+        const values = Object.values(total_score[i]);
+        let number_value = parseInt(values)
+        total += number_value
+      }
+      let aggregated_Score = total/total_score.length
+      console.log(aggregated_Score)
+      $('.aggregated_Score').show()
+      $('.aggregated_Score').text(`
+        SCORE: ${aggregated_Score}`)
     })
+
+// INDUSTRY RESTAURANT CALLBACK FUNCTION FROM INDUSTRY SELECTOR
   } else if (industry_key == "restaurant") {
-    restaurant_Calculator(demographic_data)
-  } else if (industry_key == "beauty") {
-    beauty_Calculator(demographic_data)
+    restaurant_Calculator(demographic_data,function(){
+
+      median_Age_Scorer(demographic_data,function(){
+        console.log(score_explanation[1]['Median Age Score Specifics'])
+        $('.restaurant_median_Age').text(
+          `${score_explanation[1]['Median Age Score Specifics']}
+          `)
+        $('#restaurant_how_Score_Median_Btn').click(function(){
+          let modal_paragraph = $('#myModal').children().find('p')
+
+          modal_paragraph.text(`
+            ${score_explanation[0]['Median Age Explanation']}
+            `)
+
+          $('#myModal').show()
+          $('.close').click(function(){
+            let modal_popup_list = modal_paragraph.children()
+            modal_popup_list.remove()
+            $('#myModal').hide()
+
+          })
+        })
+      })
+
+      population_poverty(demographic_data,function(){
+        console.log(score_explanation[2]['Poverty Percentage Explanation'])
+        $('.restaurant_poverty_percentage').text(
+          `${score_explanation[3]['Poverty Score Specifics']}
+          `)
+        $('#restaurant_how_Score_Poverty_Btn').click(function(){
+          let modal_paragraph = $('#myModal').children().find('p')
+
+          modal_paragraph.text(`
+            ${score_explanation[2]['Poverty Percentage Explanation']}
+            `)
+
+          $('#myModal').show()
+          $('.close').click(function(){
+            let modal_popup_list = modal_paragraph.children()
+            modal_popup_list.remove()
+            $('#myModal').hide()
+
+          })
+        })
+      })
+
+      has_no_vehicle(demographic_data,function(){
+
+        $('.no_vehicle_percentage').text(
+          `${score_explanation[5]['No Vehicle Score Specifics']}
+          `)
+        $('#restaurant_how_Score_novehicle_Btn').click(function(){
+          let modal_paragraph = $('#myModal').children().find('p')
+
+          modal_paragraph.text(`
+            ${score_explanation[4]['No Vehicle Percentage Explanation']}
+            `)
+
+          $('#myModal').show()
+          $('.close').click(function(){
+            let modal_popup_list = modal_paragraph.children()
+            modal_popup_list.remove()
+            $('#myModal').hide()
+
+          })
+        })
+
+      })
+
+      high_School_Degreeorhigher(demographic_data,function(){
+        $('.restaurant_highschool_percentage').text(
+
+          `${score_explanation[7]['Highschool Score Specifics']}
+          `)
+        $('#restaurant_how_Score_highschool_Btn').click(function(){
+
+          let modal_paragraph = $('#myModal').children().find('p')
+
+          modal_paragraph.text(`
+            ${score_explanation[6]['Highschool Education Explanation']}
+            `)
+        $('#myModal').show()
+        $('.close').click(function(){
+          let modal_popup_list = modal_paragraph.children()
+          modal_popup_list.remove()
+          $('#myModal').hide()
+
+          })
+        })
+      })
+
+      $('.restaurant').show()
+      $('.restaurant_Btn').click(function(){
+        $('.restaurant_ul').toggle()
+      })
+      let total = 0
+      for (let i=0;i<total_score.length;i++){
+        const values = Object.values(total_score[i]);
+        let number_value = parseInt(values)
+        total += number_value
+      }
+      let aggregated_Score = total/total_score.length
+      console.log(aggregated_Score)
+      $('.aggregated_Score').show()
+      $('.aggregated_Score').text(`
+        SCORE: ${aggregated_Score}`)
+    })
   } else if (industry_key == "automotive") {
-    automotive_Calculator(demographic_data)
+    automotive_Calculator(demographic_data,function(){
+
+      median_Age_Scorer(demographic_data,function(){
+        console.log(score_explanation[1]['Median Age Score Specifics'])
+        $('.automotive_median_Age').text(
+          `${score_explanation[1]['Median Age Score Specifics']}
+          `)
+        $('#automotive_how_Score_Median_Btn').click(function(){
+          let modal_paragraph = $('#myModal').children().find('p')
+
+          modal_paragraph.text(`
+            ${score_explanation[0]['Median Age Explanation']}
+            `)
+
+          $('#myModal').show()
+          $('.close').click(function(){
+            let modal_popup_list = modal_paragraph.children()
+            modal_popup_list.remove()
+            $('#myModal').hide()
+
+          })
+        })
+      })
+
+      population_poverty(demographic_data,function(){
+        console.log(score_explanation[2]['Poverty Percentage Explanation'])
+        $('.automotive_poverty_percentage').text(
+          `${score_explanation[3]['Poverty Score Specifics']}
+          `)
+        $('#automotive_how_Score_Poverty_Btn').click(function(){
+          let modal_paragraph = $('#myModal').children().find('p')
+
+          modal_paragraph.text(`
+            ${score_explanation[2]['Poverty Percentage Explanation']}
+            `)
+
+          $('#myModal').show()
+          $('.close').click(function(){
+            let modal_popup_list = modal_paragraph.children()
+            modal_popup_list.remove()
+            $('#myModal').hide()
+
+          })
+        })
+      })
+
+      has_no_vehicle(demographic_data,function(){
+
+        $('.no_vehicle_percentage').text(
+          `${score_explanation[5]['No Vehicle Score Specifics']}
+          `)
+        $('#automotive_how_Score_novehicle_Btn').click(function(){
+          let modal_paragraph = $('#myModal').children().find('p')
+
+          modal_paragraph.text(`
+            ${score_explanation[4]['No Vehicle Percentage Explanation']}
+            `)
+
+          $('#myModal').show()
+          $('.close').click(function(){
+            let modal_popup_list = modal_paragraph.children()
+            modal_popup_list.remove()
+            $('#myModal').hide()
+
+          })
+        })
+
+      })
+
+      high_School_Degreeorhigher(demographic_data,function(){
+        $('.automotive_highschool_percentage').text(
+
+          `${score_explanation[7]['Highschool Score Specifics']}
+          `)
+        $('#automotive_how_Score_highschool_Btn').click(function(){
+
+          let modal_paragraph = $('#myModal').children().find('p')
+
+          modal_paragraph.text(`
+            ${score_explanation[6]['Highschool Education Explanation']}
+            `)
+        $('#myModal').show()
+        $('.close').click(function(){
+          let modal_popup_list = modal_paragraph.children()
+          modal_popup_list.remove()
+          $('#myModal').hide()
+
+          })
+        })
+      })
+
+      $('.automotive').show()
+      $('.automotive_Btn').click(function(){
+        $('.automotive_ul').toggle()
+      })
+      let total = 0
+      for (let i=0;i<total_score.length;i++){
+        const values = Object.values(total_score[i]);
+        let number_value = parseInt(values)
+        total += number_value
+      }
+      let aggregated_Score = total/total_score.length
+      console.log(aggregated_Score)
+      $('.aggregated_Score').show()
+      $('.aggregated_Score').text(`
+        SCORE: ${aggregated_Score}`)
+    })
+
   } else {
     console.log('no industry was selected')
   }

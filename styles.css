@@ -3,31 +3,13 @@ width:100%;
 height:100%;
 display:none
 }
-
-
-
 .score_titles{
-
   text-align: center;
-}
-
-
-
-.scores_Explanation_Btn{
-
 }
 .scores_ul{
   display:none;
 }
 
-.demographic_container{
-
-
-}
-.financial_container{
-
-
-}
 
 
 /* The Modal (background) */

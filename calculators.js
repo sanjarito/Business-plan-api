@@ -288,6 +288,40 @@ callback()
 }
 
 
+function has_no_vehicle(demographic_data,callback){
+  console.log(demographic_data[0]['percentage that has no vehicle'])
+  console.log(demographic_data[1]['percentage that has no vehicle'])
+  let population_target = demographic_data[0]['percentage that has no vehicle']
+  let population_model = demographic_data[1]['percentage that has no vehicle']
+  let percentage_substraction = population_model - population_target
+  console.log(population_target)
+  console.log(population_model)
+
+  score_explanation.push({'No Vehicle Percentage Explanation':`The score is a substraction of the percentage of the population that has no vechicle for model county minus the target county.`})
+    if (percentage_substraction >= 1){
+      total_score.push({'Total Poverty Score':10})
+      score_explanation.push({'No Vehicle Score Specifics':`It received a score of 10 because model county has a percentage of  ${population_model} of people without a vechicle and target county has ${population_target}.Target county has 1% or less of a difference in percentage of people without a vehicle than model county`})
+    } else if (percentage_substraction < 1 && percentage_substraction <= 3 ){
+      total_score.push({'Total Poverty Score':9})
+      score_explanation.push({'No Vehicle Score Specifics':`It received a score of 9 because model county has a percentage of  ${population_model} of people without a vechicle and target county has ${population_target}.Target county has between 1.01% and 3% more people without a vechicle`})
+    } else if (percentage_substraction < 3 && percentage_substraction <= 5 ){
+      total_score.push({'Total Poverty Score':8})
+      score_explanation.push({'No Vehicle Score Specifics':`It received a score of 8 because model county has a percentage of  ${population_model} of people without a vechicle and target county has ${population_target}.Target county has between 3.01% and 5% more people without a vechicle`})
+    } else if (percentage_substraction < 5 && percentage_substraction <= 8 ){
+      total_score.push({'Total Poverty Score':7})
+      score_explanation.push({'No Vehicle Score Specifics':`It received a score of 7 because model county has a percentage of  ${population_model} of people without a vechicle and target county has ${population_target}.Target county has between 5.01% and 8% more people without a vechicle`})
+    } else if (percentage_substraction < 8 && percentage_substraction <= 10 ){
+      total_score.push({'Total Poverty Score':6})
+      score_explanation.push({'No Vehicle Score Specifics':`It received a score of 6 because model county has a percentage of  ${population_model} of people without a vechicle and target county has ${population_target}.Target county has between 8.01% and 10% more people without a vechicle`})
+    } else {
+      total_score.push({'Total Poverty Score':5})
+      score_explanation.push({'No Vehicle Score Specifics':`It received a score of 5 because model county has a percentage of  ${population_model} of people without a vechicle and target county has ${population_target}.Target county has more than 10% of people without a vechicle than model county.`})
+    }
+callback()
+}
+
+
+
 
 
 
@@ -300,15 +334,17 @@ function construction_Calculator(demographic_data,callback){
   console.log('inside construction calculator')
   callback();
 }
-function restaurant_Calculator(demographic_data){
+function restaurant_Calculator(demographic_data,callback){
   console.log('inside restaurant calculator function')
-  console.log(demographic_data)
+  callback();
 }
-function beauty_Calculator(demographic_data){
-  console.log('inside beauty calculator function')
-  console.log(demographic_data)
-}
-function automotive_Calculator(demographic_data){
+
+function automotive_Calculator(demographic_data,callback){
   console.log('inside automotive calculator function')
-  console.log(demographic_data)
+  callback();
 }
+
+// function beauty_Calculator(demographic_data){
+//   console.log('inside beauty calculator function')
+//   console.log(demographic_data)
+// }
