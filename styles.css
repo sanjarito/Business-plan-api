@@ -15,6 +15,12 @@ text-align: center;
 width: 100%;
 }
 
+.scores_Explanation_Btn{
+  margin: auto;
+  display: block;  
+}
+
+
 
 /* The Modal (background) */
 .modal {
