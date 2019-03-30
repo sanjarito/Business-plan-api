@@ -9,7 +9,11 @@ display:none
 .scores_ul{
   display:none;
 }
-
+.form-container{
+display: block;
+text-align: center;
+width: 100%;
+}
 
 
 /* The Modal (background) */
