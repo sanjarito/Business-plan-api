@@ -4,365 +4,368 @@
     <meta charset="utf-8">
     <title>Business Plan Api</title>
     <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css?family=Roboto+Slab" rel="stylesheet">
     <script
 			  src="https://code.jquery.com/jquery-3.3.1.min.js"
 			  integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
 			  crossorigin="anonymous"></script>
   </head>
   <body>
-    <div class="form-container">
-      <form id="formify-research-city">
-        <span><h1>Research County</h1></span>
+    <div class="main-container">
+      <div class="form-container">
+        <form class="fancy" id="formify-research-city">
+          <span><h1>Calculator Machine</h1></span>
 
-        <h2> What industry do you want to research? </h2>
+          <h2> What industry do you want to research? </h2>
 
-
-        <label for="industry_choice">Industry</label>
-        <select id="industry_selection">
-          <option value="sports">Sports</option>
-          <option value="construction">Construction</option>
-          <option value="restaurant">Restaurant</option>
-          <!-- <option value="beauty">Beauty</option> -->
-          <option value="automotive">Automotive</option>
-        </select>
-        <br><br>
-
-        <h2> What county do you want to do reseach for? </h2>
-        <label for="county_choice">County</label>
-        <input type="text" name="city" required id="county"
-        placeholder="Type County Name" value="Lee">
-
-
-        <label for="state_choice">State</label>
-        <select id="state_selection">
-        	<option value="AL">Alabama</option>
-        	<option value="AK">Alaska</option>
-        	<option value="AZ">Arizona</option>
-        	<option value="AR">Arkansas</option>
-        	<option value="CA">California</option>
-        	<option value="CO">Colorado</option>
-        	<option value="CT">Connecticut</option>
-        	<option value="DE">Delaware</option>
-        	<option value="DC">District Of Columbia</option>
-        	<option value="FL">Florida</option>
-        	<option value="GA">Georgia</option>
-        	<option value="HI">Hawaii</option>
-        	<option value="ID">Idaho</option>
-        	<option value="IL">Illinois</option>
-        	<option value="IN">Indiana</option>
-        	<option value="IA">Iowa</option>
-        	<option value="KS">Kansas</option>
-        	<option value="KY">Kentucky</option>
-        	<option value="LA">Louisiana</option>
-        	<option value="ME">Maine</option>
-        	<option value="MD">Maryland</option>
-        	<option value="MA">Massachusetts</option>
-        	<option value="MI">Michigan</option>
-        	<option value="MN">Minnesota</option>
-        	<option value="MS">Mississippi</option>
-        	<option value="MO">Missouri</option>
-        	<option value="MT">Montana</option>
-        	<option value="NE">Nebraska</option>
-        	<option value="NV">Nevada</option>
-        	<option value="NH">New Hampshire</option>
-        	<option value="NJ">New Jersey</option>
-        	<option value="NM">New Mexico</option>
-        	<option value="NY">New York</option>
-        	<option value="NC">North Carolina</option>
-        	<option value="ND">North Dakota</option>
-        	<option value="OH">Ohio</option>
-        	<option value="OK">Oklahoma</option>
-        	<option value="OR">Oregon</option>
-        	<option value="PA">Pennsylvania</option>
-        	<option value="RI">Rhode Island</option>
-        	<option value="SC">South Carolina</option>
-        	<option value="SD">South Dakota</option>
-        	<option value="TN">Tennessee</option>
-        	<option value="TX">Texas</option>
-        	<option value="UT">Utah</option>
-        	<option value="VT">Vermont</option>
-        	<option value="VA">Virginia</option>
-        	<option value="WA">Washington</option>
-        	<option value="WV">West Virginia</option>
-        	<option value="WI">Wisconsin</option>
-        	<option value="WY">Wyoming</option>
-        </select>
-        <br><br>
-
-        <span><h2>County used as a comparison model</h2></span>
-        <label for="county_choice">County</label>
-        <input type="text" name="city" required id="county-compare"
-        placeholder="Type County Name" value="Montgomery" >
-
-        <label for="state_choice">State</label>
-        <select id="state_selection-compare">
-        	<option value="AL">Alabama</option>
-        	<option value="AK">Alaska</option>
-        	<option value="AZ">Arizona</option>
-        	<option value="AR">Arkansas</option>
-        	<option value="CA">California</option>
-        	<option value="CO">Colorado</option>
-        	<option value="CT">Connecticut</option>
-        	<option value="DE">Delaware</option>
-        	<option value="DC">District Of Columbia</option>
-        	<option value="FL">Florida</option>
-        	<option value="GA">Georgia</option>
-        	<option value="HI">Hawaii</option>
-        	<option value="ID">Idaho</option>
-        	<option value="IL">Illinois</option>
-        	<option value="IN">Indiana</option>
-        	<option value="IA">Iowa</option>
-        	<option value="KS">Kansas</option>
-        	<option value="KY">Kentucky</option>
-        	<option value="LA">Louisiana</option>
-        	<option value="ME">Maine</option>
-        	<option value="MD">Maryland</option>
-        	<option value="MA">Massachusetts</option>
-        	<option value="MI">Michigan</option>
-        	<option value="MN">Minnesota</option>
-        	<option value="MS">Mississippi</option>
-        	<option value="MO">Missouri</option>
-        	<option value="MT">Montana</option>
-        	<option value="NE">Nebraska</option>
-        	<option value="NV">Nevada</option>
-        	<option value="NH">New Hampshire</option>
-        	<option value="NJ">New Jersey</option>
-        	<option value="NM">New Mexico</option>
-        	<option value="NY">New York</option>
-        	<option value="NC">North Carolina</option>
-        	<option value="ND">North Dakota</option>
-        	<option value="OH">Ohio</option>
-        	<option value="OK">Oklahoma</option>
-        	<option value="OR">Oregon</option>
-        	<option value="PA">Pennsylvania</option>
-        	<option value="RI">Rhode Island</option>
-        	<option value="SC">South Carolina</option>
-        	<option value="SD">South Dakota</option>
-        	<option value="TN">Tennessee</option>
-        	<option value="TX">Texas</option>
-        	<option value="UT">Utah</option>
-        	<option value="VT">Vermont</option>
-        	<option value="VA">Virginia</option>
-        	<option value="WA">Washington</option>
-        	<option value="WV">West Virginia</option>
-        	<option value="WI">Wisconsin</option>
-        	<option value="WY">Wyoming</option>
-        </select>
-
-
-
-        <br><br>
-        <button type="button" name="button" id="form-submit">Submit</button>
-
-      </form>
-      <h2 class="aggregated_Score"></h2>
-    </div>
-    <div class="sports scores_container">
-        <button class="sports_Btn scores_Explanation_Btn">Scores Explanation</button>
-        <ul class="sports_ul scores_ul">
-          <div class="demographic_container">
-            <h2 class="score_titles">Demographic Scores</h2>
-            <!-- MEDIAN AGE EXPLANATION OF SCORE -->
-            <h3>Median Age Score:</h3>
-            <li class="median_Age">
-            </li>
-            <button id="how_Score_Median_Btn">How is score calculated</button>
-            <!-- TOTAL POPULATION EXPLANATION OF SCORE -->
-            <h3>Total Population Score:</h3>
-            <li class="total_Population">
-            </li>
-            <button id="how_Score_Totalpopulation_Btn">How is score calculated</button>
-            <!-- AGE 5-14 EXPLANATION OF SCORE -->
-            <h3>Five to Fourteen Age Score:</h3>
-            <li class="fivetofourteen_Age">
-            </li>
-            <button id="how_Score_Fivetofourteen_Btn">How is score calculated</button>
-            <!-- AGE 15-44 EXPLANATION OF SCORE -->
-            <h3>Fifteen to Fourty Four Age Score:</h3>
-            <li class="fiftytofortyfour_Age">
-            </li>
-            <button id="how_Score_Fiftytofortyfour_Btn">How is score calculated</button>
+          <div class="industry_selector">
+            <label for="industry_choice">Industry</label>
+            <select id="industry_selection">
+              <option value="sports">Sports</option>
+              <option value="construction">Construction</option>
+              <option value="restaurant">Restaurant</option>
+              <!-- <option value="beauty">Beauty</option> -->
+              <option value="automotive">Automotive</option>
+            </select>
           </div>
 
-          <div class="financial_container">
-            <h2 class="score_titles">Financial Scores</h2>
-            <!-- ESTIMATE EARNINGS EXPLANATION OF SCORE -->
-            <h3>Estimate Earnings Score:</h3>
-            <li class="estimate_Earnings">
-            </li>
-            <button id="how_Score_Estimate_Earnings_Btn">How is score calculated</button>
-            <h3>Mean Household Income Score:</h3>
-            <li class="mean_Income_Earnings">
-            </li>
-            <button id="how_Score_Mean_Income_Btn">How is score calculated</button>
 
-          </div>
+          <h2> What county do you want to do reseach for? </h2>
+          <label for="county_choice">County</label>
+          <input type="text" name="city" required id="county"
+          placeholder="Type County Name" value="Lee">
 
-          <div class="transportation_container">
-            <h2 class="score_titles">Transportation Scores</h2>
-            <!-- ESTIMATE EARNINGS EXPLANATION OF SCORE -->
-            <h3>Work Travel Time Score:</h3>
-            <li class="work_Travel_Time">
-            </li>
-            <button id="how_Score_Work_Traveltime_Btn">How is score calculated</button>
 
-          </div>
+          <label for="state_choice">State</label>
+          <select id="state_selection">
+          	<option value="AL">Alabama</option>
+          	<option value="AK">Alaska</option>
+          	<option value="AZ">Arizona</option>
+          	<option value="AR">Arkansas</option>
+          	<option value="CA">California</option>
+          	<option value="CO">Colorado</option>
+          	<option value="CT">Connecticut</option>
+          	<option value="DE">Delaware</option>
+          	<option value="DC">District Of Columbia</option>
+          	<option value="FL">Florida</option>
+          	<option value="GA">Georgia</option>
+          	<option value="HI">Hawaii</option>
+          	<option value="ID">Idaho</option>
+          	<option value="IL">Illinois</option>
+          	<option value="IN">Indiana</option>
+          	<option value="IA">Iowa</option>
+          	<option value="KS">Kansas</option>
+          	<option value="KY">Kentucky</option>
+          	<option value="LA">Louisiana</option>
+          	<option value="ME">Maine</option>
+          	<option value="MD">Maryland</option>
+          	<option value="MA">Massachusetts</option>
+          	<option value="MI">Michigan</option>
+          	<option value="MN">Minnesota</option>
+          	<option value="MS">Mississippi</option>
+          	<option value="MO">Missouri</option>
+          	<option value="MT">Montana</option>
+          	<option value="NE">Nebraska</option>
+          	<option value="NV">Nevada</option>
+          	<option value="NH">New Hampshire</option>
+          	<option value="NJ">New Jersey</option>
+          	<option value="NM">New Mexico</option>
+          	<option value="NY">New York</option>
+          	<option value="NC">North Carolina</option>
+          	<option value="ND">North Dakota</option>
+          	<option value="OH">Ohio</option>
+          	<option value="OK">Oklahoma</option>
+          	<option value="OR">Oregon</option>
+          	<option value="PA">Pennsylvania</option>
+          	<option value="RI">Rhode Island</option>
+          	<option value="SC">South Carolina</option>
+          	<option value="SD">South Dakota</option>
+          	<option value="TN">Tennessee</option>
+          	<option value="TX">Texas</option>
+          	<option value="UT">Utah</option>
+          	<option value="VT">Vermont</option>
+          	<option value="VA">Virginia</option>
+          	<option value="WA">Washington</option>
+          	<option value="WV">West Virginia</option>
+          	<option value="WI">Wisconsin</option>
+          	<option value="WY">Wyoming</option>
+          </select>
+          <br><br>
 
-          <div class="Education_container">
-            <h2 class="score_titles">Education Scores</h2>
-            <!-- ESTIMATE EARNINGS EXPLANATION OF SCORE -->
-            <h3>High School Degree or Higher Score:</h3>
-            <li class="highSchool_Degreeorhigher_Score">
-            </li>
-            <button id="how_Score_Highschool_Btn">How is score calculated</button>
-            <h3>Bachelors Degree or Higher Score:</h3>
-            <li class="bachelors_Degreeorhigher_Score">
-            </li>
-            <button id="how_Score_Bachelors_Btn">How is score calculated</button>
+          <span><h2>County used as a comparison model</h2></span>
+          <label for="county_choice">County</label>
+          <input type="text" name="city" required id="county-compare"
+          placeholder="Type County Name" value="Montgomery" >
 
-          </div>
+          <label for="state_choice">State</label>
+          <select id="state_selection-compare">
+          	<option value="AL">Alabama</option>
+          	<option value="AK">Alaska</option>
+          	<option value="AZ">Arizona</option>
+          	<option value="AR">Arkansas</option>
+          	<option value="CA">California</option>
+          	<option value="CO">Colorado</option>
+          	<option value="CT">Connecticut</option>
+          	<option value="DE">Delaware</option>
+          	<option value="DC">District Of Columbia</option>
+          	<option value="FL">Florida</option>
+          	<option value="GA">Georgia</option>
+          	<option value="HI">Hawaii</option>
+          	<option value="ID">Idaho</option>
+          	<option value="IL">Illinois</option>
+          	<option value="IN">Indiana</option>
+          	<option value="IA">Iowa</option>
+          	<option value="KS">Kansas</option>
+          	<option value="KY">Kentucky</option>
+          	<option value="LA">Louisiana</option>
+          	<option value="ME">Maine</option>
+          	<option value="MD">Maryland</option>
+          	<option value="MA">Massachusetts</option>
+          	<option value="MI">Michigan</option>
+          	<option value="MN">Minnesota</option>
+          	<option value="MS">Mississippi</option>
+          	<option value="MO">Missouri</option>
+          	<option value="MT">Montana</option>
+          	<option value="NE">Nebraska</option>
+          	<option value="NV">Nevada</option>
+          	<option value="NH">New Hampshire</option>
+          	<option value="NJ">New Jersey</option>
+          	<option value="NM">New Mexico</option>
+          	<option value="NY">New York</option>
+          	<option value="NC">North Carolina</option>
+          	<option value="ND">North Dakota</option>
+          	<option value="OH">Ohio</option>
+          	<option value="OK">Oklahoma</option>
+          	<option value="OR">Oregon</option>
+          	<option value="PA">Pennsylvania</option>
+          	<option value="RI">Rhode Island</option>
+          	<option value="SC">South Carolina</option>
+          	<option value="SD">South Dakota</option>
+          	<option value="TN">Tennessee</option>
+          	<option value="TX">Texas</option>
+          	<option value="UT">Utah</option>
+          	<option value="VT">Vermont</option>
+          	<option value="VA">Virginia</option>
+          	<option value="WA">Washington</option>
+          	<option value="WV">West Virginia</option>
+          	<option value="WI">Wisconsin</option>
+          	<option value="WY">Wyoming</option>
+          </select>
+
+
+
+          <br><br>
+          <button type="button" name="button" id="form-submit">Submit</button>
+
+        </form>
+        <h2 class="aggregated_Score"></h2>
       </div>
-
-          <div class="construction scores_container">
-              <button class="construction_Btn scores_Explanation_Btn">Scores Explanation</button>
-              <ul class="construction_ul scores_ul">
-              <div class="demographic_container">
-                <h2 class="score_titles">Demographic Scores</h2>
-                <!-- MEDIAN AGE EXPLANATION OF SCORE -->
-                <h3>Median Age Score:</h3>
-                <li class="construction_median_Age">
-                </li>
-                <button id="construction_how_Score_Median_Btn">How is score calculated</button>
-
-              </div>
-
-              <div class="financial_container">
-                <h2 class="score_titles">Financial Scores</h2>
-                <h3>Population Poverty Percentage:</h3>
-                <li class="construction_poverty_percentage">
-                </li>
-                <button id="construction_how_Score_Poverty_Btn">How is score calculated</button>
-
-
-              </div>
-
-              <div class="transportation_container">
-                <h2 class="score_titles">Transportation Scores</h2>
-                <h3>No Vehicle Percentage:</h3>
-                <li class="no_vehicle_percentage">
-                </li>
-                <button id="construction_how_Score_novehicle_Btn">How is score calculated</button>
-
-
-              </div>
-
-              <div class="Education_container">
-                <h2 class="score_titles">Education Scores</h2>
-                <h3>No Vehicle Percentage:</h3>
-                <li class="construction_highschool_percentage">
-                </li>
-                <button id="construction_how_Score_highschool_Btn">How is score calculated</button>
-
-
-
-              </div>
-          </div>
-
-          <div class="restaurant scores_container">
-              <button class="restaurant_Btn scores_Explanation_Btn">Scores Explanation</button>
-              <ul class="restaurant_ul scores_ul">
-              <div class="demographic_container">
-                <h2 class="score_titles">Demographic Scores</h2>
-                <!-- MEDIAN AGE EXPLANATION OF SCORE -->
-                <h3>Median Age Score:</h3>
-                <li class="restaurant_median_Age">
-                </li>
-                <button id="restaurant_how_Score_Median_Btn">How is score calculated</button>
-
-              </div>
-
-              <div class="financial_container">
-                <h2 class="score_titles">Financial Scores</h2>
-                <h3>Population Poverty Percentage:</h3>
-                <li class="restaurant_poverty_percentage">
-                </li>
-                <button id="restaurant_how_Score_Poverty_Btn">How is score calculated</button>
-              </div>
-
-              <div class="transportation_container">
-                <h2 class="score_titles">Transportation Scores</h2>
-                <h3>No Vehicle Percentage:</h3>
-                <li class="no_vehicle_percentage">
-                </li>
-                <button id="restaurant_how_Score_novehicle_Btn">How is score calculated</button>
-
-
-              </div>
-
-              <div class="Education_container">
-                <h2 class="score_titles">Education Scores</h2>
-                <h3>No Vehicle Percentage:</h3>
-                <li class="restaurant_highschool_percentage">
-                </li>
-                <button id="restaurant_how_Score_highschool_Btn">How is score calculated</button>
-
-
-
-              </div>
-          </div>
-
-          <div class="automotive scores_container">
-              <button class="automotive_Btn scores_Explanation_Btn">Scores Explanation</button>
-              <ul class="automotive_ul scores_ul">
-              <div class="demographic_container">
-                <h2 class="score_titles">Demographic Scores</h2>
-                <!-- MEDIAN AGE EXPLANATION OF SCORE -->
-                <h3>Median Age Score:</h3>
-                <li class="automotive_median_Age">
-                </li>
-                <button id="automotive_how_Score_Median_Btn">How is score calculated</button>
-
-              </div>
-
-              <div class="financial_container">
-                <h2 class="score_titles">Financial Scores</h2>
-                <h3>Population Poverty Percentage:</h3>
-                <li class="automotive_poverty_percentage">
-                </li>
-                <button id="automotive_how_Score_Poverty_Btn">How is score calculated</button>
-              </div>
-
-              <div class="transportation_container">
-                <h2 class="score_titles">Transportation Scores</h2>
-                <h3>No Vehicle Percentage:</h3>
-                <li class="no_vehicle_percentage">
-                </li>
-                <button id="automotive_how_Score_novehicle_Btn">How is score calculated</button>
-
-
-              </div>
-
-              <div class="Education_container">
-                <h2 class="score_titles">Education Scores</h2>
-                <h3>No Vehicle Percentage:</h3>
-                <li class="automotive_highschool_percentage">
-                </li>
-                <button id="automotive_how_Score_highschool_Btn">How is score calculated</button>
-
-
-
-              </div>
-          </div>
-
-          <div id="myModal" class="modal">
-            <!-- Modal content -->
-            <div class="modal-content">
-              <span class="close">&times;</span>
-              <p></p>
+      <div class="sports scores_container">
+          <button class="sports_Btn scores_Explanation_Btn">Scores Explanation</button>
+          <ul class="sports_ul scores_ul">
+            <div class="demographic_container">
+              <h2 class="score_titles">Demographic Scores</h2>
+              <!-- MEDIAN AGE EXPLANATION OF SCORE -->
+              <h3>Median Age Score:</h3>
+              <li class="median_Age">
+              </li>
+              <button id="how_Score_Median_Btn">How is score calculated</button>
+              <!-- TOTAL POPULATION EXPLANATION OF SCORE -->
+              <h3>Total Population Score:</h3>
+              <li class="total_Population">
+              </li>
+              <button id="how_Score_Totalpopulation_Btn">How is score calculated</button>
+              <!-- AGE 5-14 EXPLANATION OF SCORE -->
+              <h3>Five to Fourteen Age Score:</h3>
+              <li class="fivetofourteen_Age">
+              </li>
+              <button id="how_Score_Fivetofourteen_Btn">How is score calculated</button>
+              <!-- AGE 15-44 EXPLANATION OF SCORE -->
+              <h3>Fifteen to Fourty Four Age Score:</h3>
+              <li class="fiftytofortyfour_Age">
+              </li>
+              <button id="how_Score_Fiftytofortyfour_Btn">How is score calculated</button>
             </div>
-          </div>
 
-      </ul>
+            <div class="financial_container">
+              <h2 class="score_titles">Financial Scores</h2>
+              <!-- ESTIMATE EARNINGS EXPLANATION OF SCORE -->
+              <h3>Estimate Earnings Score:</h3>
+              <li class="estimate_Earnings">
+              </li>
+              <button id="how_Score_Estimate_Earnings_Btn">How is score calculated</button>
+              <h3>Mean Household Income Score:</h3>
+              <li class="mean_Income_Earnings">
+              </li>
+              <button id="how_Score_Mean_Income_Btn">How is score calculated</button>
+
+            </div>
+
+            <div class="transportation_container">
+              <h2 class="score_titles">Transportation Scores</h2>
+              <!-- ESTIMATE EARNINGS EXPLANATION OF SCORE -->
+              <h3>Work Travel Time Score:</h3>
+              <li class="work_Travel_Time">
+              </li>
+              <button id="how_Score_Work_Traveltime_Btn">How is score calculated</button>
+
+            </div>
+
+            <div class="Education_container">
+              <h2 class="score_titles">Education Scores</h2>
+              <!-- ESTIMATE EARNINGS EXPLANATION OF SCORE -->
+              <h3>High School Degree or Higher Score:</h3>
+              <li class="highSchool_Degreeorhigher_Score">
+              </li>
+              <button id="how_Score_Highschool_Btn">How is score calculated</button>
+              <h3>Bachelors Degree or Higher Score:</h3>
+              <li class="bachelors_Degreeorhigher_Score">
+              </li>
+              <button id="how_Score_Bachelors_Btn">How is score calculated</button>
+
+            </div>
+        </div>
+
+            <div class="construction scores_container">
+                <button class="construction_Btn scores_Explanation_Btn">Scores Explanation</button>
+                <ul class="construction_ul scores_ul">
+                <div class="demographic_container">
+                  <h2 class="score_titles">Demographic Scores</h2>
+                  <!-- MEDIAN AGE EXPLANATION OF SCORE -->
+                  <h3>Median Age Score:</h3>
+                  <li class="construction_median_Age">
+                  </li>
+                  <button id="construction_how_Score_Median_Btn">How is score calculated</button>
+
+                </div>
+
+                <div class="financial_container">
+                  <h2 class="score_titles">Financial Scores</h2>
+                  <h3>Population Poverty Percentage:</h3>
+                  <li class="construction_poverty_percentage">
+                  </li>
+                  <button id="construction_how_Score_Poverty_Btn">How is score calculated</button>
+
+
+                </div>
+
+                <div class="transportation_container">
+                  <h2 class="score_titles">Transportation Scores</h2>
+                  <h3>No Vehicle Percentage:</h3>
+                  <li class="no_vehicle_percentage">
+                  </li>
+                  <button id="construction_how_Score_novehicle_Btn">How is score calculated</button>
+
+
+                </div>
+
+                <div class="Education_container">
+                  <h2 class="score_titles">Education Scores</h2>
+                  <h3>No Vehicle Percentage:</h3>
+                  <li class="construction_highschool_percentage">
+                  </li>
+                  <button id="construction_how_Score_highschool_Btn">How is score calculated</button>
+
+
+
+                </div>
+            </div>
+
+            <div class="restaurant scores_container">
+                <button class="restaurant_Btn scores_Explanation_Btn">Scores Explanation</button>
+                <ul class="restaurant_ul scores_ul">
+                <div class="demographic_container">
+                  <h2 class="score_titles">Demographic Scores</h2>
+                  <!-- MEDIAN AGE EXPLANATION OF SCORE -->
+                  <h3>Median Age Score:</h3>
+                  <li class="restaurant_median_Age">
+                  </li>
+                  <button id="restaurant_how_Score_Median_Btn">How is score calculated</button>
+
+                </div>
+
+                <div class="financial_container">
+                  <h2 class="score_titles">Financial Scores</h2>
+                  <h3>Population Poverty Percentage:</h3>
+                  <li class="restaurant_poverty_percentage">
+                  </li>
+                  <button id="restaurant_how_Score_Poverty_Btn">How is score calculated</button>
+                </div>
+
+                <div class="transportation_container">
+                  <h2 class="score_titles">Transportation Scores</h2>
+                  <h3>No Vehicle Percentage:</h3>
+                  <li class="no_vehicle_percentage">
+                  </li>
+                  <button id="restaurant_how_Score_novehicle_Btn">How is score calculated</button>
+
+
+                </div>
+
+                <div class="Education_container">
+                  <h2 class="score_titles">Education Scores</h2>
+                  <h3>No Vehicle Percentage:</h3>
+                  <li class="restaurant_highschool_percentage">
+                  </li>
+                  <button id="restaurant_how_Score_highschool_Btn">How is score calculated</button>
+
+
+
+                </div>
+            </div>
+
+            <div class="automotive scores_container">
+                <button class="automotive_Btn scores_Explanation_Btn">Scores Explanation</button>
+                <ul class="automotive_ul scores_ul">
+                <div class="demographic_container">
+                  <h2 class="score_titles">Demographic Scores</h2>
+                  <!-- MEDIAN AGE EXPLANATION OF SCORE -->
+                  <h3>Median Age Score:</h3>
+                  <li class="automotive_median_Age">
+                  </li>
+                  <button id="automotive_how_Score_Median_Btn">How is score calculated</button>
+
+                </div>
+
+                <div class="financial_container">
+                  <h2 class="score_titles">Financial Scores</h2>
+                  <h3>Population Poverty Percentage:</h3>
+                  <li class="automotive_poverty_percentage">
+                  </li>
+                  <button id="automotive_how_Score_Poverty_Btn">How is score calculated</button>
+                </div>
+
+                <div class="transportation_container">
+                  <h2 class="score_titles">Transportation Scores</h2>
+                  <h3>No Vehicle Percentage:</h3>
+                  <li class="no_vehicle_percentage">
+                  </li>
+                  <button id="automotive_how_Score_novehicle_Btn">How is score calculated</button>
+
+
+                </div>
+
+                <div class="Education_container">
+                  <h2 class="score_titles">Education Scores</h2>
+                  <h3>No Vehicle Percentage:</h3>
+                  <li class="automotive_highschool_percentage">
+                  </li>
+                  <button id="automotive_how_Score_highschool_Btn">How is score calculated</button>
+
+
+
+                </div>
+            </div>
+
+            <div id="myModal" class="modal">
+              <!-- Modal content -->
+              <div class="modal-content">
+                <span class="close">&times;</span>
+                <p></p>
+              </div>
+            </div>
+
+        </ul>
     </div>
     <script type="text/javascript" src="calculators.js"></script>
     <script type="text/javascript" src="scoring_machine.js"></script>
