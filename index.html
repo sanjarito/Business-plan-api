@@ -19,7 +19,7 @@
           <h2> What industry do you want to research? </h2>
 
           <div class="industry_selector">
-            <label for="industry_choice">Industry</label>
+            <label for="industry_choice">Industry :</label>
             <select id="industry_selection">
               <option value="sports">Sports</option>
               <option value="construction">Construction</option>
@@ -30,10 +30,10 @@
           </div>
 
 
-          <h2> What county do you want to do reseach for? </h2>
-          <label for="county_choice">County</label>
+          <h2> County to do reseach for? </h2>
+          <label for="county_choice">County : </label>
           <input type="text" name="city" required id="county"
-          placeholder="Type County Name" value="Lee">
+          placeholder="County Name" value="Lee">
 
 
           <label for="state_choice">State</label>
@@ -158,8 +158,15 @@
           <button type="button" name="button" id="form-submit">Submit</button>
 
         </form>
+
+        </div>
+
+      </div>
+
+      <div class="total_score_container">
         <h2 class="aggregated_Score"></h2>
       </div>
+
       <div class="sports scores_container">
           <button class="sports_Btn scores_Explanation_Btn">Scores Explanation</button>
           <ul class="sports_ul scores_ul">
@@ -366,7 +373,7 @@
             </div>
 
         </ul>
-    </div>
+
     <script type="text/javascript" src="calculators.js"></script>
     <script type="text/javascript" src="scoring_machine.js"></script>
     <script type="text/javascript" src="main.js"></script>
