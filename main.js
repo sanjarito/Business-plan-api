@@ -9,7 +9,7 @@ const proxyurl = "https://cors-anywhere.herokuapp.com/";
 function change_Countyname_to_CountyFIP(county_name,state_key,county_name_compare,state_key_compare,industry_key){
   let county_name_corrected = county_name.toProperCase()
   let county_name_compare_corrected = county_name_compare.toProperCase()
-  
+
 
 
 
@@ -148,15 +148,19 @@ function county_comparison_model(demographic_Variables,industry_key,demographic_
 }
 
 function listenForm(){
+  $('.scores_Explanation_Btn').hide()
 
   $('#form-submit').on('click',function(e){
     e.preventDefault();
+    e.stopPropagation();
     // EMPTY ARRAY
     empty();
     // HIDE SCORE EXPLANATION UL'S
-    $('.construction').hide();
-    $('.sports').hide();
-    $('.aggregated_Score').hide();
+    reset();
+    //HIDE SCORES UL'S
+
+
+
     // GET VALUE FROM COUNTY NAME FIELD IN FORM
     const county_name = $('#county').val()
     const county_name_compare = $('#county-compare').val()
@@ -187,6 +191,15 @@ function empty(){
   demographic_data.length=0;
   total_score.length=0;
   score_explanation.length=0;
+
+}
+function reset(){
+  $('.construction_ul').hide();
+  $('.sports_ul').hide();
+  $('automotive_ul').hide();
+  $('restaurant_ul').hide();
+  $('.aggregated_Score').hide();
+  $('.scores_Explanation_Btn').hide();
 
 }
 
