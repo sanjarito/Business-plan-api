@@ -195,9 +195,12 @@ function industry_Selector(demographic_data,industry_key){
         })
       })
 
-      $('.sports').show()
-      $('.sports_Btn').click(function(){
-        $('.sports_ul').toggle()
+
+      $('.scores_Explanation_Btn').on('click',function(e){
+        e.preventDefault();
+        e.stopPropagation();
+        $('.sports').show()
+        $('.sports_ul').show("slow")
       })
 
       let total = 0
@@ -211,6 +214,10 @@ function industry_Selector(demographic_data,industry_key){
       $('.aggregated_Score').show()
       $('.aggregated_Score').text(`
         SCORE: ${aggregated_Score}`)
+      $('.aggregated_Score').append(`
+          <br><span style="font-size:12px;color:yellow">For questions about score click arrow below</span>`)
+      $('.total_score_container').show()
+      $('.scores_Explanation_Btn').show()
 
   })
 
@@ -309,8 +316,10 @@ function industry_Selector(demographic_data,industry_key){
       })
 
       $('.construction').show()
-      $('.construction_Btn').click(function(){
-        $('.construction_ul').toggle()
+      $('.scores_Explanation_Btn').on('click',function(e){
+        e.preventDefault();
+        e.stopPropagation();
+        $('.construction_ul').show("slow")
       })
       let total = 0
       for (let i=0;i<total_score.length;i++){
@@ -323,6 +332,10 @@ function industry_Selector(demographic_data,industry_key){
       $('.aggregated_Score').show()
       $('.aggregated_Score').text(`
         SCORE: ${aggregated_Score}`)
+      $('.aggregated_Score').append(`
+            <br><span style="font-size:12px;color:yellow">For questions about score click arrow below</span>`)
+      $('.total_score_container').show()
+      $('.scores_Explanation_Btn').show()
     })
 
 // INDUSTRY RESTAURANT CALLBACK FUNCTION FROM INDUSTRY SELECTOR
@@ -418,9 +431,11 @@ function industry_Selector(demographic_data,industry_key){
         })
       })
 
-      $('.restaurant').show()
-      $('.restaurant_Btn').click(function(){
-        $('.restaurant_ul').toggle()
+      $('.scores_Explanation_Btn').on('click',function(e){
+        e.preventDefault();
+        e.stopPropagation();
+        $('.restaurant').show()
+        $('.restaurant_ul').show("slow")
       })
       let total = 0
       for (let i=0;i<total_score.length;i++){
@@ -433,6 +448,10 @@ function industry_Selector(demographic_data,industry_key){
       $('.aggregated_Score').show()
       $('.aggregated_Score').text(`
         SCORE: ${aggregated_Score}`)
+      $('.aggregated_Score').append(`
+            <br><span style="font-size:12px;color:yellow">For questions about score click arrow below</span>`)
+      $('.total_score_container').show()
+      $('.scores_Explanation_Btn').show()
     })
   } else if (industry_key == "automotive") {
     automotive_Calculator(demographic_data,function(){
@@ -509,7 +528,8 @@ function industry_Selector(demographic_data,industry_key){
 
           `${score_explanation[7]['Highschool Score Specifics']}
           `)
-        $('#automotive_how_Score_highschool_Btn').click(function(){
+        $('#automotive_how_Score_highschool_Btn').click(function(e){
+
 
           let modal_paragraph = $('#myModal').children().find('p')
 
@@ -526,9 +546,11 @@ function industry_Selector(demographic_data,industry_key){
         })
       })
 
-      $('.automotive').show()
-      $('.automotive_Btn').click(function(){
-        $('.automotive_ul').toggle()
+      $('.scores_Explanation_Btn').on('click',function(e){
+        e.preventDefault();
+        e.stopPropagation();
+        $('.automotive').show()
+        $('.automotive_ul').show("slow")
       })
       let total = 0
       for (let i=0;i<total_score.length;i++){
@@ -541,7 +563,13 @@ function industry_Selector(demographic_data,industry_key){
       $('.aggregated_Score').show()
       $('.aggregated_Score').text(`
         SCORE: ${aggregated_Score}`)
+      $('.aggregated_Score').append(`
+            <br><span style="font-size:12px;color:yellow">For questions about score click arrow below</span>`)
+      $('.total_score_container').show();
+      $('.scores_Explanation_Btn').show()
+
     })
+
 
   } else {
     console.log('no industry was selected')
