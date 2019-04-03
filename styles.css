@@ -31,6 +31,7 @@ width: 130px;
     width: 100%;
 
     background-image: url(images/city-background.jpg);
+    background-repeat: no-repeat;
 }
 .total_score_container{
   position:relative;
