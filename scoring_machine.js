@@ -218,6 +218,7 @@ function industry_Selector(demographic_data,industry_key){
           <br><span style="font-size:12px;color:yellow">For questions about score click arrow below</span>`)
       $('.total_score_container').show()
       $('.scores_Explanation_Btn').show()
+      $('#modal_loading').hide()
 
   })
 
@@ -336,6 +337,7 @@ function industry_Selector(demographic_data,industry_key){
             <br><span style="font-size:12px;color:yellow">For questions about score click arrow below</span>`)
       $('.total_score_container').show()
       $('.scores_Explanation_Btn').show()
+      $('#modal_loading').hide()
     })
 
 // INDUSTRY RESTAURANT CALLBACK FUNCTION FROM INDUSTRY SELECTOR
@@ -452,6 +454,7 @@ function industry_Selector(demographic_data,industry_key){
             <br><span style="font-size:12px;color:yellow">For questions about score click arrow below</span>`)
       $('.total_score_container').show()
       $('.scores_Explanation_Btn').show()
+      $('#modal_loading').hide()
     })
   } else if (industry_key == "automotive") {
     automotive_Calculator(demographic_data,function(){
@@ -567,12 +570,14 @@ function industry_Selector(demographic_data,industry_key){
             <br><span style="font-size:12px;color:yellow">For questions about score click arrow below</span>`)
       $('.total_score_container').show();
       $('.scores_Explanation_Btn').show()
+      $('#modal_loading').hide()
 
     })
 
 
   } else {
     console.log('no industry was selected')
+    $('#modal_loading').hide()
   }
 }
 

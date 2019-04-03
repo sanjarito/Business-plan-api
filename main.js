@@ -26,6 +26,7 @@ function change_Countyname_to_CountyFIP(county_name,state_key,county_name_compar
             console.log('Looks like there was a problem. Status Code: ' +
               response.status);
             console.log('Make sure your County exists within selected state')
+            $('#modal_loading').hide()
             return;
           }
           response.text()
@@ -51,6 +52,7 @@ function fetch_US_Census_API(fip_fullcode,industry_key,county_name_compare_corre
         if (response.status !== 200) {
           console.log('Looks like there was a problem. Status Code: ' +
             response.status);
+            $('#modal_loading').hide()
           return;
         }
         // Examine the text in the response
@@ -62,6 +64,7 @@ function fetch_US_Census_API(fip_fullcode,industry_key,county_name_compare_corre
     )
     .catch(function(err) {
       console.log('Fetch Error :-S', err);
+      $('#modal_loading').hide()
     });
 }
 
@@ -90,6 +93,7 @@ function do_fetch_call_Model(county_name_compare_corrected,state_key_compare,ind
         console.log('Looks like there was a problem. Status Code: ' +
           response.status);
         console.log('Make sure your County exists within selected state')
+        $('#modal_loading').hide()
         return;
       }
       response.text()
@@ -116,6 +120,7 @@ function fetch_US_Census_API_model(fip_fullcode,industry_key){
         if (response.status !== 200) {
           console.log('Looks like there was a problem. Status Code: ' +
             response.status);
+            $('#modal_loading').hide()
           return;
         }
         // Examine the text in the response
@@ -130,6 +135,7 @@ function fetch_US_Census_API_model(fip_fullcode,industry_key){
     )
     .catch(function(err) {
       console.log('Fetch Error :-S', err);
+      $('#modal_loading').hide()
     });
 }
 
@@ -158,6 +164,11 @@ function listenForm(){
     // HIDE SCORE EXPLANATION UL'S
     reset();
     //HIDE SCORES UL'S
+    $('#modal_loading').show()
+    $('.close').click(function(){
+      $('#modal_loading').hide()
+
+    })
 
 
 
