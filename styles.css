@@ -210,12 +210,13 @@ margin-top: 50px;
   #industry_selection {
     font-size:30px;
   }
-  label {
-  font-size: 30px;
-  }
   input{
     font-size:22px;
   }
+  label {
+  font-size: 30px;
+  }
+
 }
 
 @media only screen and (min-width:700px) and (max-width: 1200px) {
