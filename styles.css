@@ -39,7 +39,9 @@ width: 130px;
   background: rgba(255, 0, 0, 0.8);
   bottom: 0;
   text-align: center;
-  width: 100%;
+  width: 50%;
+  margin:auto;
+  border-radius:10px;
   display:none;
 }
 
@@ -201,12 +203,20 @@ margin-top: 50px;
   #formify-research-city {
     width:400px;
   }
+  .industry_selector {
+    width:80%;
+    font-size:40px;
+  }
+  #industry_selection {
+    font-size:35px;
+  }
 }
 
 @media only screen and (min-width:700px) and (max-width: 1200px) {
   #formify-research-city {
     width:650px;
   }
+
 
 }
 
