@@ -211,10 +211,14 @@ margin-top: 50px;
     font-size:30px;
   }
   input{
-    font-size:22px;
+    font-size:25px;
   }
   label {
   font-size: 30px;
+  }
+  select{
+  font-size: 25px;
+  width: 53%;
   }
 
 }
