@@ -208,7 +208,10 @@ margin-top: 50px;
     font-size:40px;
   }
   #industry_selection {
-    font-size:35px;
+    font-size:30px;
+  }
+  label {
+  font-size: 30px;
   }
 }
 
